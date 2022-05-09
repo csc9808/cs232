@@ -1,0 +1,23 @@
+''' answers.txt 
+contains answers for following questions on homework01 assignment
+@Professor Victor Norman
+@ completed by: Seong Chan Cho (sc77)
+@ Date: Feb 4,2022
+'''
+1. 1024 bits
+
+2. reg 0, reg1, reg 2
+
+3. takes in the value in the specific register, checks whether that value in the register is less than 0, and change the register to the destination register.
+
+4. after each instruction, before it proceeds to the next one, cpu checks to see if there are any interrupts, and if it is pending it will accept interrupts.
+
+5. It shows the memory from start to end.
+
+6. Either turns on/off (toggle) the debugging. Idle state at off.
+
+7. Yes assembly language accepts comments that start with # sign. It also take in blank lines. It will be skipped. 
+
+8. At Monitor code writing bytes into memory is done through : _write_program()
+
+9. Yes, because they are given starting address. 
