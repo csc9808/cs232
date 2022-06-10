@@ -1,0 +1,40 @@
+''' answers.txt answered by Seong Chan Cho on Feb 12, 2022 '''
+
+1)	Where is the PCB class defined?
+It's defined in the calos.py file
+
+2)	What information does a PCB object contain?
+name,pid, next_pid, the state, register 0,1,2 values, Program counter value, and the quantum
+
+3)	When is a PCB created? Which line in which file creates a PCB?
+line 180 in main.py where it says,pcb = calos.PCB(procname)
+
+4)	What process states have been defined?
+New, Ready, Running, Waiting, Done (Written in the calos.py class PCB)
+
+5)	Regarding the variable current_proc: Where has it been defined and what is its significance?
+It can be found on line 7 in calos.py inside the calos class. It holds the address of the current_process's PCB.
+
+6)	In the TimerController class, what does code that reads
+ 	with self._mutex:
+ 	    code here... 		
+do?
+It reads the value to analyze the number of cycles it need to fire the timer. It locks to protect setting/getting the countdown.
+
+7)	In the TimerController class, explain what the code does when the countdown goes to 0 (i.e., the time expires).
+
+ if countdown == 0:
+
+ # timer expired!
+                self._cpu.take_interrupt_mutex()
+                self._cpu.add_interrupt_addr(self._dev_id)
+                self._cpu.set_interrupt(True)
+                self._cpu.release_interrupt_mutex()
+                # Don't generate another interrupt until the
+                # previous one is handled and the interrupt is
+                # reset.
+                countdown = self.NOT_RUNNING
+
+So when the timer goes down to 0, it will create an interrupt for the interrupt to be handled. This interrupt will not be gone until it is
+handled and the program will not create another one until it is handled and resolved. 
+Lastly, it will put the the countdown state to Not Running. 
